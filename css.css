@@ -4,10 +4,222 @@ body{
 h2{
     color: #FFFAFA;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: left;
+    text-align: center;
 }
 h1{
-    color:#FFFAFA;
+    color:#d149bf;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+    font-size: 80px;
+    left: 30%;
+    border:1px solid black;
+    display: inline;
+    position: absolute;
+}
+h1::after{
+    content: "";
+    display: block;
+    left: 80px;
+    width: 100%;
+    height: 5px;
+    background: #fffefe;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+}
+h1:hover::after{
+    transform: scale(1);
+}
+img {
+    width: 75px;
+
+}
+nav{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    background: radial-gradient(circle, rgba(63,79,251,1) 26%, rgba(245,252,70,1) 97%);
+    box-shadow: inset 0px -5px 0px #ffe819;
+}
+
+.nav-icon {
+    display: center;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.nav-icon span {
+    font-size: 25px;
+    margin-left: 10px;
+    font-weight: 400;
+    color: #fafafa   
+}
+.nav-icon img {
+    width: 40px;
+    transform: rotate(-17deg) translate(5px);
+}
+img{
+    width: 40px;
+}
+.hamburger {
+    display: none;
+}
+.navlinks-container a {
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #252322;
+    display: inline-block;
+    position: relative;
+}
+.navlinks-container a::after {
+    content:"";
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(0); 
+    transform-origin: left;
+    background: #252322;
+    transition: transform 0.3s ease-out;
+}
+.navlinks-container a:hover::after{
+    transform: scaleX(1);
+}
+.nav-authentification {
+    margin-left: auto;
+}
+
+.Sign-btns button{
+    font-family: Roboto Flex, sans-serif;
+    color: #000000;
+    font-size: 16px;
+    min-width: 150px;
+    padding: 10px 5px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;   
+}
+.Sign-btns button:nth-child(2) {
+    border: none;
+    background-color: #b4b3cab7;
+}
+.sign user {
+    display: none;
+}
+@media (max-width: 900px) {
+    nav {
+        padding: 15px 20px;
+        position: relative;
+    }
+
+    .nav-icon{
+        order: 2;
+        margin: 0 auto;
+
+    }
+
+    .nav-icon span{
+        font-size: 22px;
+    }
+
+    .main-navlinks {
+        order: 1;
+    }
+    .hamburger{
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        border: none;
+        display: flex;
+        background: #395dff;
+        align-items: center;
+        position: relative;
+ 
+    }
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #333;
+        position: absolute;
+        pointer-events: none;
+        transition: opacity 0.3s 0.15s ease-out;
+
+    }
+    .hamburger span:nth-child(1),
+    .hamburger span:nth-child(3) {
+        transition: transform 0.3s ease-out;
+    }
+
+    .hamburger span:nth-child(1) {
+        transform: translateY(7px);
+    }
+    .hamburger span:nth-child(3) {
+        transform: translateY(-7px);
+    }
+    .hamburger.open span:nth-child(1) {
+        transform: translate(0) rotate(135deg);
+    }
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        transition: opacity 0s ease-out;
+    }
+    .hamburger.open span:nth-child(3) {
+        transform: translate(0) rotate(-135deg);
+    }
+
+    .navlinks-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        background-color: #d5e76d;
+        top: 100%;
+        left: 0;
+        height: 25vh;
+        border-right: 1px solid #c5c5c6;
+        /*transform: translate(-100%);*/
+        transition: transform 0.3s ease-out;
+
+    }
+    .open{
+        transform: translate(0%);
+    }
+    
+    .navlinks-container a {
+        font-size: 18px;
+        margin: 10px 0
+    }
+     
+
+    .nav-authentification{
+        order: 3; 
+        margin-left: 0;
+    }
+    .Sign-btns {
+        display: none;
+    }
+    .sign user{
+        display: block;
+        cursor: pointer;
+        border: none;
+    }
+    .sign user img{
+        width: 30px;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .nav-icon img {
+        width: 30px;
+    }
+    .nav-icon span {
+        font-size: 25px;
+    }
 }
